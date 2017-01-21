@@ -3,4 +3,14 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorSearchTheme">#42A5F5</color>
+    <color name="colorUploadTheme">#D4E157</color>
+    <color name="colorDiscoverTheme">#4DB6AC</color>
+    <color name="colorPersonalTheme">#90A4AE</color>
+
+    <color name="colorChosenTab">#00BCD4</color>
+    <color name="button_action">#00BCD4</color>
+    <color name="default_text_color">#212121</color>
+    <color name="default_icon_color">#424242</color>
 </resources>

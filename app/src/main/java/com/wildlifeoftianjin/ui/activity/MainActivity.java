@@ -1,4 +1,4 @@
-package com.wildlifeoftianjin.UI;
+package com.wildlifeoftianjin.ui.activity;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -12,11 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wildlifeoftianjin.R;
-import com.wildlifeoftianjin.UI.Fragment.DiscoverFragment;
-import com.wildlifeoftianjin.UI.Fragment.PersonalFragment;
-import com.wildlifeoftianjin.UI.Fragment.SearchFragment;
-import com.wildlifeoftianjin.UI.Fragment.UploadFragment;
-import com.wildlifeoftianjin.UI.Frame.ClickTabsLayout.ClickTabsFramework;
+import com.wildlifeoftianjin.network.VolleyManager;
+import com.wildlifeoftianjin.ui.fragment.DiscoverFragment;
+import com.wildlifeoftianjin.ui.fragment.PersonalFragment;
+import com.wildlifeoftianjin.ui.fragment.SearchFragment;
+import com.wildlifeoftianjin.ui.fragment.UploadRecordFragment;
+import com.wildlifeoftianjin.ui.framework.clicktabslayout.ClickTabsFramework;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         mContentFragments.add(
                 new ContentPage(
-                        UploadFragment.newInstance(),
+                        UploadRecordFragment.newInstance(),
                         mResources.getString(R.string.tab_title_upload),
                         mResources.getDrawable(R.drawable.ic_tab_upload_default),
                         mResources.getDrawable(R.drawable.ic_tab_upload_chosen)
@@ -84,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        VolleyManager.init(getApplicationContext());
+
         setContentView(R.layout.activity_main);
         prepareRes();
         prepareContentFragments();

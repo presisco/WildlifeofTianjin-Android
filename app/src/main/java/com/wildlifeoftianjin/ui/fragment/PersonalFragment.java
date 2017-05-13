@@ -1,4 +1,4 @@
-package com.wildlifeoftianjin.UI.Fragment;
+package com.wildlifeoftianjin.ui.fragment;
 
 
 import android.os.Bundle;
@@ -11,12 +11,12 @@ import com.wildlifeoftianjin.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SearchFragment#newInstance} factory method to
+ * Use the {@link PersonalFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SearchFragment extends Fragment {
+public class PersonalFragment extends Fragment {
 
-    public SearchFragment() {
+    public PersonalFragment() {
         // Required empty public constructor
     }
 
@@ -26,8 +26,8 @@ public class SearchFragment extends Fragment {
      *
      * @return A new instance of fragment SearchFragment.
      */
-    public static SearchFragment newInstance() {
-        SearchFragment fragment = new SearchFragment();
+    public static PersonalFragment newInstance() {
+        PersonalFragment fragment = new PersonalFragment();
         return fragment;
     }
 
@@ -40,7 +40,7 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search_home, container, false);
+        return inflater.inflate(R.layout.fragment_personal, container, false);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.wildlifeoftianjin.UI.Fragment;
+package com.wildlifeoftianjin.ui.fragment;
 
 
 import android.os.Bundle;

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageCreature"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/creature_overview_image_height"
+            android:adjustViewBounds="true"
+            android:cropToPadding="false"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_network_loading" />
+
+        <TextView
+            android:id="@+id/textCreatureName"
+            style="@style/Text.Title.Preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="TextView" />
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

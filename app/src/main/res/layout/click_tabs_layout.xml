@@ -10,7 +10,7 @@
         android:layout_above="@+id/click_tabs_scroll"
         android:layout_alignParentTop="true" />
 
-    <com.wildlifeoftianjin.UI.Frame.ClickTabsLayout.ClickTabsContainer
+    <com.wildlifeoftianjin.ui.framework.clicktabslayout.ClickTabsContainer
         android:id="@+id/click_tabs_scroll"
         android:layout_width="match_parent"
         android:layout_height="@dimen/click_tabs_layout_tabs_height"

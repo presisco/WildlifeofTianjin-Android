@@ -1,4 +1,4 @@
-package com.wildlifeoftianjin.UI.Frame.ClickTabsLayout;
+package com.wildlifeoftianjin.ui.framework.clicktabslayout;
 
 import android.content.Context;
 import android.content.Intent;

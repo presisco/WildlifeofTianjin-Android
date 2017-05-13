@@ -12,5 +12,7 @@
     <color name="colorChosenTab">#00BCD4</color>
     <color name="button_action">#00BCD4</color>
     <color name="default_text_color">#212121</color>
-    <color name="default_icon_color">#424242</color>
+    <color name="default_icon_color">#03A9F4</color>
+    <color name="default_warning_color">#FFC107</color>
+    <color name="default_error_color">#E53935</color>
 </resources>

@@ -1,8 +1,90 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppThemeActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    </style>
+
+    <style name="CardViewDefault" parent="CardView.Light">
+
+    </style>
+
+    <style name="Text" parent="@style/TextAppearance.AppCompat.Medium"></style>
+
+    <style name="Text.TopBar" parent="Text">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#212121</item>
+    </style>
+
+    <style name="Text.Title" parent="Text">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#1E88E5</item>
+    </style>
+
+    <style name="Text.Title.Preview" parent="Text">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Text.Normal" parent="Text">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Text.Normal.Label" parent="Text.Normal">
+        <item name="android:textColor">#212121</item>
+    </style>
+
+    <style name="Text.Normal.Content" parent="Text.Normal">
+        <item name="android:textColor">#616161</item>
+    </style>
+
+    <style name="Layout" />
+
+    <style name="Layout.Root">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:divider">@drawable/divider_line</item>
+        <item name="android:showDividers">middle</item>
+    </style>
+
+    <style name="Layout.TopBar" parent="Layout">
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+    <style name="Layout.Row" parent="Layout">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+    </style>
+
+    <style name="Icon" />
+
+    <style name="Icon.TopBar" parent="Icon">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="Icon.Headshot" parent="Icon">
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="Icon.Headshot.Large">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">120dp</item>
     </style>
 
 </resources>

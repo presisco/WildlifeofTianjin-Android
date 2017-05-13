@@ -13,4 +13,6 @@
     <dimen name="text_size_large">18sp</dimen>
     <dimen name="text_size_very_large">24sp</dimen>
 
+    <dimen name="creature_overview_image_height">120dp</dimen>
+
 </resources>

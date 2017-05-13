@@ -10,7 +10,7 @@
     <dimen name="click_tabs_layout_content_frame_margin_top">4dp</dimen>
     <dimen name="click_tabs_layout_content_frame_margin_bottom">4dp</dimen>
 
-    <color name="click_tabs_layout_tabs_default_background_color">#E0E0E0</color>
+    <color name="click_tabs_layout_tabs_default_background_color">#F5F5F5</color>
     <color name="click_tabs_layout_tabs_default_color">#212121</color>
     <color name="click_tabs_layout_tabs_selected_color">#4FC3F7</color>
 </resources>

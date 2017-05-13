@@ -3,18 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.wildlifeoftianjin.UI.Fragment.SearchFragment">
+    tools:context="com.wildlifeoftianjin.ui.fragment.SearchFragment">
 
     <RelativeLayout
         android:id="@+id/topBar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/top_bar_height">
+        style="@style/Layout.TopBar">
 
         <SearchView
             android:id="@+id/searchView"
             style="@android:style/Widget.Material.Light.SearchView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_centerVertical="true"
             android:layout_toStartOf="@+id/buttonFilter" />
 
         <Button
@@ -25,15 +25,16 @@
             android:layout_alignParentBottom="false"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="false"
-            android:layout_alignParentTop="true"
+            android:layout_alignParentTop="false"
+            android:layout_centerVertical="true"
             android:gravity="center_vertical"
             android:text="@string/filter"
-            android:textSize="@dimen/text_size_large" />
+            android:textAppearance="@style/Text.Normal.Label" />
 
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/suggestionList"
+        android:id="@+id/frontPageList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>

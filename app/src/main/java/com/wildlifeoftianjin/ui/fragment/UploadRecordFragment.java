@@ -1,4 +1,4 @@
-package com.wildlifeoftianjin.UI.Fragment;
+package com.wildlifeoftianjin.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,12 +13,12 @@ import com.wildlifeoftianjin.R;
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  * to handle interaction events.
- * Use the {@link UploadFragment#newInstance} factory method to
+ * Use the {@link UploadRecordFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UploadFragment extends Fragment {
+public class UploadRecordFragment extends Fragment {
 
-    public UploadFragment() {
+    public UploadRecordFragment() {
         // Required empty public constructor
     }
 
@@ -28,8 +28,8 @@ public class UploadFragment extends Fragment {
      *
      * @return A new instance of fragment SearchFragment.
      */
-    public static UploadFragment newInstance() {
-        UploadFragment fragment = new UploadFragment();
+    public static UploadRecordFragment newInstance() {
+        UploadRecordFragment fragment = new UploadRecordFragment();
         return fragment;
     }
 
@@ -42,7 +42,7 @@ public class UploadFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_upload, container, false);
+        return inflater.inflate(R.layout.fragment_upload_record, container, false);
     }
 
     @Override

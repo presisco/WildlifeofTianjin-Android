@@ -3,20 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.wildlifeoftianjin.ui.fragment.DiscoverFragment">
-
-    <RelativeLayout style="@style/Layout.TopBar">
-
-        <TextView
-            style="@style/Layout.TopBar.Title"
-            android:text="@string/tab_title_discover"
-            android:textAppearance="@style/Text.TopBar" />
-
-
-    </RelativeLayout>
+    tools:context="layout.CreatureListFragment">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/articleList"
+        android:id="@+id/listCreature"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

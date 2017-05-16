@@ -13,24 +13,21 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/top_bar_height">
 
-
         <ImageView
             android:id="@+id/imageView"
-            style="@style/Icon.TopBar"
+            style="@style/Layout.TopBar.Icon"
             android:layout_alignParentLeft="true"
             android:onClick="onSetting"
             android:src="@drawable/ic_settings" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            style="@style/Layout.TopBar.Title"
             android:text="个人"
             android:textAppearance="@style/Text.TopBar" />
 
         <ImageView
             android:id="@+id/imageDraftBox"
-            style="@style/Icon.TopBar"
+            style="@style/Layout.TopBar.Icon"
             android:layout_alignParentRight="true"
             android:onClick="onSetting"
             android:src="@drawable/ic_draftbox" />
@@ -53,6 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:onClick="onSignIn"
             android:text="@string/label_click_login"
             android:textAppearance="@style/Text.Normal.Content" />
     </LinearLayout>

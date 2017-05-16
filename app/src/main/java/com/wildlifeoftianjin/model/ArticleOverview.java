@@ -6,7 +6,7 @@ package com.wildlifeoftianjin.model;
 
 public class ArticleOverview {
     private String title;
-    private String overview;
+    private String summary;
     private String date;
     private String author;
     private String image_url;

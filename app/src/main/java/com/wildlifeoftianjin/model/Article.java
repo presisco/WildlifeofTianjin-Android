@@ -5,4 +5,6 @@ package com.wildlifeoftianjin.model;
  */
 
 public class Article {
+    public Article() {
+    }
 }

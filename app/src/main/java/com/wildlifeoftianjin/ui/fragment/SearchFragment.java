@@ -10,11 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.wildlifeoftianjin.R;
 import com.wildlifeoftianjin.data.SearchHistoryHelper;
 import com.wildlifeoftianjin.model.CreatureOverview;
-import com.wildlifeoftianjin.network.Request.BaseRequest;
-import com.wildlifeoftianjin.ui.framework.adapter.CreatureOverviewAdapter;
+import com.wildlifeoftianjin.network.Request.TaskResponse;
+import com.wildlifeoftianjin.ui.framework.adapter.CreatureListAdapter;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -24,8 +26,8 @@ import java.util.List;
  * Use the {@link SearchFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SearchFragment extends Fragment {
-    private CreatureOverviewAdapter mCreatureViewAdapter;
+public class SearchFragment extends Fragment implements TaskResponse<List<CreatureOverview>>, Response.ErrorListener {
+    private CreatureListAdapter mCreatureViewAdapter;
     private SearchView mSearchView;
     private List<CreatureOverview> mCreatureOverviews = null;
     private SearchHistoryHelper mSearchHelper;
@@ -60,7 +62,7 @@ public class SearchFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.frontPageList);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         mCreatureOverviews = new LinkedList<>();
-        mCreatureViewAdapter = new CreatureOverviewAdapter();
+        mCreatureViewAdapter = new CreatureListAdapter();
         mCreatureViewAdapter.setDataSet(mCreatureOverviews);
         recyclerView.setAdapter(mCreatureViewAdapter);
 
@@ -69,11 +71,20 @@ public class SearchFragment extends Fragment {
         return rootView;
     }
 
-    public class OnFrontPageListLoadCompleteListener implements BaseRequest.OnParseCompleteListener<List<CreatureOverview>> {
-        @Override
-        public void onParseComplete(List<CreatureOverview> result) {
-            mCreatureViewAdapter.setDataSet(result);
-            mCreatureViewAdapter.notifyDataSetChanged();
-        }
+    @Override
+    public void onResponse(List<CreatureOverview> response) {
+        mCreatureViewAdapter.setDataSet(response);
+        mCreatureViewAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * Callback method that an error has been occurred with the
+     * provided error code and optional user-readable message.
+     *
+     * @param error
+     */
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
     }
 }

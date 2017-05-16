@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.wildlifeoftianjin.ui.activity.RecordActivity">
+
+    <RelativeLayout style="@style/Layout.TopBar">
+
+        <ImageView
+            android:id="@+id/imageBack"
+            style="@style/Layout.TopBar.Icon"
+            android:layout_alignParentLeft="true"
+            android:onClick="onBack"
+            app:srcCompat="@drawable/ic_search" />
+
+        <TextView
+            style="@style/Layout.TopBar.Title"
+            android:text="@string/label_record"
+            android:textAppearance="@style/Text.TopBar" />
+
+        <ImageView
+            android:id="@+id/imageRecord"
+            style="@style/Layout.TopBar.Icon"
+            android:layout_toLeftOf="@+id/imageEdit"
+            android:onClick="onRecord"
+            app:srcCompat="@drawable/ic_record" />
+
+        <ImageView
+            android:id="@+id/imageEdit"
+            style="@style/Layout.TopBar.Icon"
+            android:layout_alignParentRight="false"
+            android:layout_toLeftOf="@+id/imageShare"
+            android:onClick="onEdit"
+            app:srcCompat="@drawable/ic_edit" />
+
+        <ImageView
+            android:id="@+id/imageShare"
+            style="@style/Layout.TopBar.Icon"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="true"
+            android:onClick="onShare"
+            app:srcCompat="@drawable/ic_share" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/record_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

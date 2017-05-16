@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wildlifeoftianjin.R;
-import com.wildlifeoftianjin.network.VolleyManager;
 import com.wildlifeoftianjin.ui.fragment.DiscoverFragment;
 import com.wildlifeoftianjin.ui.fragment.PersonalFragment;
 import com.wildlifeoftianjin.ui.fragment.SearchFragment;
@@ -85,8 +84,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        VolleyManager.init(getApplicationContext());
 
         setContentView(R.layout.activity_main);
         prepareRes();

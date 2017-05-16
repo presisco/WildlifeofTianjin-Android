@@ -2,19 +2,19 @@ package com.wildlifeoftianjin.network.Request;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
-import com.wildlifeoftianjin.model.ArticleOverview;
+import com.wildlifeoftianjin.model.Record;
 import com.wildlifeoftianjin.network.Constants;
 
-import org.json.JSONArray;
+import org.json.JSONObject;
 
-import java.util.List;
 import java.util.Map;
 
 /**
- * Created by presisco on 2017/1/22.
+ * Created by presisco on 2017/5/16.
  */
 
-public class ArticleListRequest extends ListRequest<List<ArticleOverview>> {
+public class RecordRequest extends ObjectRequest<Record> {
+    private int record_id;
 
     /**
      * Creates a new request.
@@ -22,8 +22,9 @@ public class ArticleListRequest extends ListRequest<List<ArticleOverview>> {
      * @param listener      Listener to receive the JSON response
      * @param errorListener Error listener, or null to ignore errors.
      */
-    public ArticleListRequest(TaskResponse<List<ArticleOverview>> listener, Response.ErrorListener errorListener) {
-        super(Method.GET, Constants.PATH_REQUEST_ARTICLE_LIST, listener, errorListener);
+    public RecordRequest(int record_id, TaskResponse<Record> listener, Response.ErrorListener errorListener) {
+        super(Method.GET, Constants.PATH_REQUEST_RECORD, listener, errorListener);
+        this.record_id = record_id;
     }
 
     /**
@@ -39,7 +40,7 @@ public class ArticleListRequest extends ListRequest<List<ArticleOverview>> {
     }
 
     @Override
-    protected void deliverResponse(JSONArray response) {
+    protected void deliverResponse(JSONObject response) {
         getTaskResponse().onResponse(null);
     }
 }

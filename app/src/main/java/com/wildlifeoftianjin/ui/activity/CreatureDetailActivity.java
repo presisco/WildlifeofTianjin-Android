@@ -6,12 +6,12 @@ import android.view.View;
 
 import com.wildlifeoftianjin.R;
 
-public class PlantDetailActivity extends AppCompatActivity {
+public class CreatureDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_plant_detail);
+        setContentView(R.layout.activity_creature_detail);
     }
 
     public void onBack(View v) {
@@ -29,4 +29,5 @@ public class PlantDetailActivity extends AppCompatActivity {
     public void onRecord(View v) {
 
     }
+
 }

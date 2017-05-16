@@ -10,7 +10,7 @@ public class CreatureOverview {
 
     private String name;
     private String image_url;
-    private int type;
+    private String type;
 
     public CreatureOverview() {
     }
@@ -31,11 +31,11 @@ public class CreatureOverview {
         image_url = _image_url;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int _type) {
+    public void setType(String _type) {
         type = _type;
     }
 }

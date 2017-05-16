@@ -15,26 +15,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
-            android:layout_toStartOf="@+id/buttonFilter" />
+            android:layout_toStartOf="@+id/textFilter"
+            tools:style="@style/Layout.TopBar.Item" />
 
-        <Button
-            android:id="@+id/buttonFilter"
-            style="@android:style/Widget.Material.Light.Button.Borderless"
-            android:layout_width="@dimen/search_bar_filter_width"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="false"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="false"
-            android:layout_alignParentTop="false"
-            android:layout_centerVertical="true"
-            android:gravity="center_vertical"
+        <TextView
+            android:id="@+id/textFilter"
+            style="@style/Layout.TopBar.Title"
+            android:layout_alignParentRight="true"
+            android:onClick="onFilter"
             android:text="@string/filter"
             android:textAppearance="@style/Text.Normal.Label" />
 
     </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/frontPageList"
+    <FrameLayout
+        android:id="@+id/searchResultPage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>

@@ -51,7 +51,7 @@ public class SearchHistoryHelper {
             CreatureOverview overview = new CreatureOverview();
             overview.setName(cursor.getString(0));
             overview.setImage_url(cursor.getString(1));
-            overview.setType(cursor.getInt(2));
+            overview.setType(cursor.getString(2));
             histories.add(overview);
         }
         cursor.close();
@@ -63,7 +63,7 @@ public class SearchHistoryHelper {
         SQLiteStatement statement = db.compileStatement(STATEMENT_INSERT);
         statement.bindString(1, new_history.getName());
         statement.bindString(2, new_history.getImage_url());
-        statement.bindLong(3, new_history.getType());
+        statement.bindString(3, new_history.getType());
         statement.executeInsert();
     }
 }

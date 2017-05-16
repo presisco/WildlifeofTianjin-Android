@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeNoActionBar">
         <activity android:name=".ui.activity.MainActivity" />
-        <activity android:name=".ui.activity.AnimalDetailActivity" />
+        <activity android:name=".ui.activity.CreatureDetailActivity" />
         <activity android:name=".ui.activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,8 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.PlantDetailActivity" />
-        <activity android:name=".ui.activity.SearchFilterActivity"></activity>
+        <activity android:name=".ui.activity.SearchFilterActivity" />
+        <activity android:name=".ui.activity.RecordListActivity" />
+        <activity android:name=".ui.activity.RecordActivity" />
+        <activity android:name=".ui.activity.ArticleActivity"></activity>
     </application>
 
 </manifest>

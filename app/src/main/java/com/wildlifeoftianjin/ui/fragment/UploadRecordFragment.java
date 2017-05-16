@@ -3,6 +3,7 @@ package com.wildlifeoftianjin.ui.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import com.wildlifeoftianjin.R;
  * create an instance of this fragment.
  */
 public class UploadRecordFragment extends Fragment {
+
+    private EditRecordFragment mEditRecordFragment;
 
     public UploadRecordFragment() {
         // Required empty public constructor
@@ -36,13 +39,20 @@ public class UploadRecordFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mEditRecordFragment = EditRecordFragment.newInstance("");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_upload_record, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_edit_record, container, false);
+
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.recordFragment, mEditRecordFragment);
+        transaction.commit();
+
+        return rootView;
     }
 
     @Override

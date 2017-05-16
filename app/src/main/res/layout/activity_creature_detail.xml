@@ -5,36 +5,32 @@
     android:id="@+id/activity_animal_detail"
     style="@style/Layout.Root"
     android:orientation="vertical"
-    tools:context="com.wildlifeoftianjin.ui.activity.AnimalDetailActivity">
+    tools:context="com.wildlifeoftianjin.ui.activity.CreatureDetailActivity">
 
     <RelativeLayout style="@style/Layout.TopBar">
 
         <ImageView
             android:id="@+id/imageBack"
-            style="@style/Icon.TopBar"
+            style="@style/Layout.TopBar.Icon"
             android:layout_alignParentLeft="true"
             android:onClick="onBack"
             app:srcCompat="@drawable/ic_search" />
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            style="@style/Layout.TopBar.Title"
             android:text="@string/label_detail"
             android:textAppearance="@style/Text.TopBar" />
 
         <ImageView
             android:id="@+id/imageRecord"
-            style="@style/Icon.TopBar"
+            style="@style/Layout.TopBar.Icon"
             android:layout_toLeftOf="@+id/imageEdit"
             android:onClick="onRecord"
             app:srcCompat="@drawable/ic_record" />
 
         <ImageView
             android:id="@+id/imageEdit"
-            style="@style/Icon.TopBar"
+            style="@style/Layout.TopBar.Icon"
             android:layout_alignParentRight="false"
             android:layout_toLeftOf="@+id/imageShare"
             android:onClick="onEdit"
@@ -42,11 +38,12 @@
 
         <ImageView
             android:id="@+id/imageShare"
-            style="@style/Icon.TopBar"
+            style="@style/Layout.TopBar.Icon"
             android:layout_alignParentEnd="false"
             android:layout_alignParentRight="true"
             android:onClick="onShare"
             app:srcCompat="@drawable/ic_share" />
+
     </RelativeLayout>
 
     <ScrollView
@@ -91,7 +88,6 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView8"
                     style="@style/Text.Normal.Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -113,7 +109,6 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView10"
                     style="@style/Text.Normal.Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -132,17 +127,17 @@
                 style="@style/Layout.Row"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView15"
                     style="@style/Text.Normal.Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/label_body_length" />
+                    android:text="@string/label_nickname" />
 
                 <TextView
-                    android:id="@+id/textBodyLength"
+                    android:id="@+id/textNickName"
                     style="@style/Text.Normal.Content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -154,17 +149,59 @@
                 style="@style/Layout.Row"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView18"
                     style="@style/Text.Normal.Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/label_outdoor_feature" />
+                    android:text="@string/label_class" />
 
                 <TextView
-                    android:id="@+id/textOutdoorFeature"
+                    android:id="@+id/textClassification"
+                    style="@style/Text.Normal.Content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="TextView" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Layout.Row"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.Normal.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_summary" />
+
+                <TextView
+                    android:id="@+id/textSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAppearance="@style/Text.Normal.Content" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Layout.Row"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.Normal.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_feature" />
+
+                <TextView
+                    android:id="@+id/textFeature"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView"
@@ -179,7 +216,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView19"
                     style="@style/Text.Normal.Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -199,33 +235,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView20"
-                    style="@style/Text.Normal.Label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_stridulation" />
-
-                <TextView
-                    android:id="@+id/textStridulation"
-                    style="@style/Text.Normal.Content"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:text="TextView" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/Layout.Row"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView17"
                     style="@style/Text.Normal.Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -248,20 +260,69 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView7"
                     style="@style/Text.Normal.Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/label_stay_status" />
+                    android:text="@string/label_protection_level" />
 
                 <TextView
-                    android:id="@+id/textStayStatus"
+                    android:id="@+id/textProtectionLevel"
                     style="@style/Text.Normal.Content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:text="TextView" />
             </LinearLayout>
+
+            <LinearLayout
+                style="@style/Layout.Row"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.Normal.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_value" />
+
+                <TextView
+                    android:id="@+id/textValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAppearance="@style/Text.Normal.Content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Layout.Row"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.Normal.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_others" />
+
+                <TextView
+                    android:id="@+id/textOther"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAppearance="@style/Text.Normal.Content" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
         </LinearLayout>
     </ScrollView>
 

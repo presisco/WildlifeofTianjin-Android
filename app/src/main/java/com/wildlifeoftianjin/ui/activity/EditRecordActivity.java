@@ -26,7 +26,7 @@ public class EditRecordActivity extends NetworkActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_record);
 
-        mEditRecordFragment = EditRecordFragment.newInstance();
+        mEditRecordFragment = new EditRecordFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.recordFragment, mEditRecordFragment);
         transaction.commit();

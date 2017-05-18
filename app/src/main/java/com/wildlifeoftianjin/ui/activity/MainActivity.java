@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mContentFragments = new ArrayList<>();
         mContentFragments.add(
                 new ContentPage(
-                        SearchFragment.newInstance(),
+                        SearchFragment.Companion.newInstance(),
                         mResources.getString(R.string.tab_title_search),
                         mResources.getDrawable(R.drawable.ic_tab_search_default),
                         mResources.getDrawable(R.drawable.ic_tab_search_chosen)

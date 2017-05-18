@@ -82,7 +82,7 @@ public class CreatureDetailActivity extends NetworkActivity
     }
 
     public void onRecord(View v) {
-        startActivity(new Intent(this, RecordListActivity.class).putExtra(RecordListActivity.KEY_CREATURE_ID, creature_id));
+        startActivity(new Intent(this, RecordListActivity.class).putExtra(RecordListActivity.Companion.getKEY_CREATURE_ID(), creature_id));
     }
 
 }

@@ -42,7 +42,7 @@ public class UploadRecordFragment extends NetworkFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mEditRecordFragment = EditRecordFragment.newInstance();
+        mEditRecordFragment = new EditRecordFragment();
     }
 
     @Override

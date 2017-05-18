@@ -8,11 +8,20 @@ public class CreatureOverview {
     public static final int TYPE_ANIMAL = 0;
     public static final int TYPE_PLANT = 1;
 
+    private String ID;
     private String name;
     private String image_url;
     private String type;
 
     public CreatureOverview() {
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     public String getName() {

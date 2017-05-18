@@ -2,12 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wildlifeoftianjin">
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppThemeNoActionBar">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".ui.activity.MainActivity" />
         <activity android:name=".ui.activity.CreatureDetailActivity" />
         <activity android:name=".ui.activity.WelcomeActivity">
@@ -17,10 +22,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.SearchFilterActivity" />
+        <activity
+            android:name=".ui.activity.SearchFilterActivity"
+            android:theme="@style/AppTheme.Dialog" />
         <activity android:name=".ui.activity.RecordListActivity" />
-        <activity android:name=".ui.activity.RecordActivity" />
-        <activity android:name=".ui.activity.ArticleActivity"></activity>
+        <activity android:name=".ui.activity.ViewRecordActivity" />
+        <activity android:name=".ui.activity.ArticleActivity" />
+        <activity
+            android:name=".ui.activity.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".ui.activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.wildlifeoftianjin.ui.activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:parentActivityName=".ui.activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.wildlifeoftianjin.ui.activity.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

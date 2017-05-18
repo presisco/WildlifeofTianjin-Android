@@ -5,12 +5,13 @@ package com.wildlifeoftianjin.model;
  */
 
 public class Creature {
-    public String[] imageUrls;
+
+    public String id;
     public String type;
-    public String name;
-    public String englishName;
+    public String scientificName;
     public String latinName;
     public String nickName;
+    public String englishName;
     public String classification;
     public String summary;
     public String feature;
@@ -31,12 +32,12 @@ public class Creature {
         this.type = type;
     }
 
-    public String getName() {
-        return name;
+    public String getScientificName() {
+        return scientificName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setScientificName(String scientificName) {
+        this.scientificName = scientificName;
     }
 
     public String getEnglishName() {

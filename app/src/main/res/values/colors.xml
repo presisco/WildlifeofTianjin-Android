@@ -9,10 +9,15 @@
     <color name="colorDiscoverTheme">#4DB6AC</color>
     <color name="colorPersonalTheme">#90A4AE</color>
 
-    <color name="colorChosenTab">#00BCD4</color>
-    <color name="button_action">#00BCD4</color>
-    <color name="default_text_color">#212121</color>
-    <color name="default_icon_color">#03A9F4</color>
+    <color name="colorChosenTab">#03a9f4</color>
+    <color name="button_action">#03a9f4</color>
+    <color name="default_accent_color">#03a9f4</color>
     <color name="default_warning_color">#FFC107</color>
     <color name="default_error_color">#E53935</color>
+
+    <color name="default_foreground_color">#212121</color>
+    <color name="default_primary_text_color">#212121</color>
+    <color name="default_secondary_text_color">#616161</color>
+
+    <color name="default_ambient_color">#9E9E9E</color>
 </resources>

@@ -5,25 +5,25 @@ import com.android.volley.Response;
 import com.wildlifeoftianjin.model.CreatureOverview;
 import com.wildlifeoftianjin.network.Constants;
 
-import org.json.JSONArray;
-
-import java.util.List;
 import java.util.Map;
 
 /**
  * Created by presisco on 2017/5/16.
  */
 
-public class SearchCreatureRequest extends ListRequest<List<CreatureOverview>> {
+public class SearchCreatureRequest extends ListRequest<CreatureOverview> {
+    private String name;
 
     /**
      * Creates a new request.
      *
+     * @param name          search name
      * @param listener      Listener to receive the JSON response
      * @param errorListener Error listener, or null to ignore errors.
      */
-    public SearchCreatureRequest(TaskResponse<List<CreatureOverview>> listener, Response.ErrorListener errorListener) {
+    public SearchCreatureRequest(String name, ListResponse<CreatureOverview> listener, Response.ErrorListener errorListener) {
         super(Method.GET, Constants.PATH_SEARCH_CREATURE, listener, errorListener);
+        this.name = name;
     }
 
     /**
@@ -36,10 +36,5 @@ public class SearchCreatureRequest extends ListRequest<List<CreatureOverview>> {
     @Override
     public Map<String, String> getHeaders() throws AuthFailureError {
         return null;
-    }
-
-    @Override
-    protected void deliverResponse(JSONArray response) {
-        getTaskResponse().onResponse(null);
     }
 }

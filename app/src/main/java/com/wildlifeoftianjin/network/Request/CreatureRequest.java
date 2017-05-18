@@ -5,8 +5,6 @@ import com.android.volley.Response;
 import com.wildlifeoftianjin.model.Creature;
 import com.wildlifeoftianjin.network.Constants;
 
-import org.json.JSONObject;
-
 import java.util.Map;
 
 /**
@@ -23,7 +21,7 @@ public class CreatureRequest extends ObjectRequest<Creature> {
      * @param listener      Listener to receive the JSON response
      * @param errorListener Error listener, or null to ignore errors.
      */
-    public CreatureRequest(int creature_id, TaskResponse<Creature> listener, Response.ErrorListener errorListener) {
+    public CreatureRequest(int creature_id, ObjectResponse<Creature> listener, Response.ErrorListener errorListener) {
         super(Method.GET, Constants.PATH_REQUEST_CREATURE, listener, errorListener);
         request_id = creature_id;
     }
@@ -38,10 +36,5 @@ public class CreatureRequest extends ObjectRequest<Creature> {
     @Override
     public Map<String, String> getHeaders() throws AuthFailureError {
         return null;
-    }
-
-    @Override
-    protected void deliverResponse(JSONObject response) {
-        getTaskResponse().onResponse(null);
     }
 }

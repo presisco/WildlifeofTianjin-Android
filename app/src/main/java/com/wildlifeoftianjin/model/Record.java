@@ -1,13 +1,18 @@
 package com.wildlifeoftianjin.model;
 
+import java.text.SimpleDateFormat;
+
 /**
  * Created by presisco on 2017/1/22.
  */
 
 public class Record {
+    public static final SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("yyyy/MM/dd hh:mm");
+
     public String recordID;
-    public String userID;
-    public String creatureClass;
+    public String username;
+    public String scientificName;
+    public String classification;
     public String time;
     public String location;
     public int count;
@@ -25,20 +30,12 @@ public class Record {
         this.recordID = recordID;
     }
 
-    public String getUserID() {
-        return userID;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
-
-    public String getCreatureClass() {
-        return creatureClass;
-    }
-
-    public void setCreatureClass(String creatureClass) {
-        this.creatureClass = creatureClass;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getTime() {
@@ -71,5 +68,21 @@ public class Record {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getScientificName() {
+        return scientificName;
+    }
+
+    public void setScientificName(String scientificName) {
+        this.scientificName = scientificName;
+    }
+
+    public String getClassification() {
+        return classification;
+    }
+
+    public void setClassification(String classification) {
+        this.classification = classification;
     }
 }

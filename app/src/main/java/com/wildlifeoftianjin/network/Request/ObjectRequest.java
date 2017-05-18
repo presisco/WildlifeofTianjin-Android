@@ -1,20 +1,18 @@
 package com.wildlifeoftianjin.network.Request;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONObject;
-
-import java.util.Map;
 
 /**
  * Created by presisco on 2017/5/16.
  */
 
 public abstract class ObjectRequest<T> extends JsonObjectRequest {
-    private TaskResponse<T> mListener;
-
+    private ObjectResponse<T> mListener;
     /**
      * Creates a new request.
      *
@@ -23,25 +21,31 @@ public abstract class ObjectRequest<T> extends JsonObjectRequest {
      * @param listener      Listener to receive the JSON response
      * @param errorListener Error listener, or null to ignore errors.
      */
-    public ObjectRequest(int method, String url, TaskResponse<T> listener, Response.ErrorListener errorListener) {
-        super(method, url, null, null, null);
+    public ObjectRequest(int method, String url, ObjectResponse<T> listener, Response.ErrorListener errorListener) {
+        super(method, url, null, null, errorListener);
         mListener = listener;
     }
 
-    /**
-     * Returns a list of extra HTTP headers to go along with this request. Can
-     * throw {@link AuthFailureError} as authentication may be required to
-     * provide these values.
-     *
-     * @throws AuthFailureError In the event of auth failure
-     */
-    @Override
-    public abstract Map<String, String> getHeaders() throws AuthFailureError;
-
-    protected TaskResponse<T> getTaskResponse() {
+    protected ObjectResponse<T> getTaskResponse() {
         return mListener;
     }
 
     @Override
-    protected abstract void deliverResponse(JSONObject response);
+    protected void deliverResponse(JSONObject response) {
+        getTaskResponse().onResponse(json2object(response));
+    }
+
+    protected T json2object(JSONObject object) {
+        Gson gson = new Gson();
+        return gson.fromJson(object.toString(), new TypeToken<T>() {
+        }.getType());
+    }
+
+    /**
+     * Created by presisco on 2017/5/16.
+     */
+
+    public interface ObjectResponse<T> {
+        void onResponse(T response);
+    }
 }

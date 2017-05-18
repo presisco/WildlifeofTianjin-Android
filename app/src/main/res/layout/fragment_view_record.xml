@@ -1,7 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:divider="@drawable/divider_line"
     android:orientation="vertical"
+    android:showDividers="middle"
     android:weightSum="1">
 
     <ScrollView
@@ -101,6 +103,27 @@
 
                 <TextView
                     android:id="@+id/textLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="TextView"
+                    android:textAppearance="@style/Text.Normal.Content" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Layout.Row"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_user"
+                    android:textAppearance="@style/Text.Normal.Label" />
+
+                <TextView
+                    android:id="@+id/textUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"

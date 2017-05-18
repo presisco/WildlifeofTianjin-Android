@@ -35,6 +35,7 @@ public class WelcomeActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+            finish();
         }
 
         /**

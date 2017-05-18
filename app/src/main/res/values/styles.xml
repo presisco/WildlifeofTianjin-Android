@@ -1,11 +1,19 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="colorAccent">@color/default_accent_color</item>
+        <item name="android:colorForeground">@color/default_foreground_color</item>
+        <item name="android:textColorPrimary">@color/primary_text_material_light</item>
+        <item name="android:textColorSecondary">@color/secondary_text_material_light</item>
     </style>
 
-    <style name="AppThemeActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    </style>
+
+    <style name="AppTheme.Dialog" parent="Theme.AppCompat.Light.Dialog">
 
     </style>
 
@@ -17,16 +25,17 @@
 
     <style name="Text.TopBar" parent="Text">
         <item name="android:textSize">24sp</item>
-        <item name="android:textColor">#212121</item>
+        <item name="android:textColor">@color/default_primary_text_color</item>
     </style>
 
     <style name="Text.TopBar.Item" parent="Text.TopBar">
-        <item name="android:textColor">@color/default_icon_color</item>
+        <item name="android:textColor">@color/default_accent_color</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="Text.Title" parent="Text">
         <item name="android:textSize">24sp</item>
-        <item name="android:textColor">#1E88E5</item>
+        <item name="android:textColor">@color/default_accent_color</item>
     </style>
 
     <style name="Text.Title.Preview" parent="Text">
@@ -38,11 +47,11 @@
     </style>
 
     <style name="Text.Normal.Label" parent="Text.Normal">
-        <item name="android:textColor">#212121</item>
+        <item name="android:textColor">@color/default_primary_text_color</item>
     </style>
 
     <style name="Text.Normal.Content" parent="Text.Normal">
-        <item name="android:textColor">#616161</item>
+        <item name="android:textColor">@color/default_secondary_text_color</item>
     </style>
 
     <style name="Layout" />
@@ -52,13 +61,13 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:divider">@drawable/divider_line</item>
         <item name="android:showDividers">middle</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
     </style>
 
     <style name="Layout.TopBar" parent="Layout">
         <item name="android:layout_height">48dp</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_marginLeft">4dp</item>
-        <item name="android:layout_marginRight">4dp</item>
         <item name="android:paddingBottom">4dp</item>
     </style>
 
@@ -103,6 +112,10 @@
     <style name="Icon.Headshot.Large">
         <item name="android:layout_width">120dp</item>
         <item name="android:layout_height">120dp</item>
+    </style>
+
+    <style name="Button.Borderless.Colored" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:textSize">18sp</item>
     </style>
 
 </resources>

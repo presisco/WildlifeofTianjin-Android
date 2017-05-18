@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.wildlifeoftianjin.R;
-
-import java.util.HashMap;
+import com.wildlifeoftianjin.model.Record;
+import com.wildlifeoftianjin.utils.ViewFinder;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,18 +18,13 @@ import java.util.HashMap;
  * create an instance of this fragment.
  */
 public class ViewRecordFragment extends Fragment {
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_NAME = "name";
-
-    private String mName = "";
-
-    private HashMap<String, TextView> textMap = new HashMap<>();
 
     private TextView mCountText;
     private TextView mTimeText;
     private TextView mSpecieText;
     private TextView mLocationText;
     private TextView mDescriptionText;
+    private TextView mUserText;
 
     public ViewRecordFragment() {
         // Required empty public constructor
@@ -39,37 +34,40 @@ public class ViewRecordFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param name Parameter mode.
      * @return A new instance of fragment EditRecordFragment.
      */
-    public static ViewRecordFragment newInstance(String name) {
+    public static ViewRecordFragment newInstance() {
         ViewRecordFragment fragment = new ViewRecordFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_NAME, name);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mName = getArguments().getString(ARG_NAME);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_edit_record, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_view_record, container, false);
+        ViewFinder finder = new ViewFinder(rootView);
 
-        mCountText = (TextView) rootView.findViewById(R.id.textCount);
-        mTimeText = (TextView) rootView.findViewById(R.id.textTime);
+        mCountText = finder.findText(R.id.textCount);
+        mTimeText = finder.findText(R.id.textTime);
+        mSpecieText = finder.findText(R.id.textSpecie);
+        mDescriptionText = finder.findText(R.id.textDescription);
+        mLocationText = finder.findText(R.id.textLocation);
+        mUserText = finder.findText(R.id.textUser);
 
         return rootView;
     }
 
-    public void setRecord() {
-
+    public void setRecord(Record record) {
+        mCountText.setText(record.count);
+        mTimeText.setText(record.time);
+        mSpecieText.setText(record.classification);
+        mDescriptionText.setText(record.description);
+        mLocationText.setText(record.location);
+        mUserText.setText(record.username);
     }
 }

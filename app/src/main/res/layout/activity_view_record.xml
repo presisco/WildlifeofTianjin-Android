@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout.Root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.wildlifeoftianjin.ui.activity.RecordActivity">
+    tools:context="com.wildlifeoftianjin.ui.activity.ViewRecordActivity">
 
     <RelativeLayout style="@style/Layout.TopBar">
 
@@ -14,7 +15,7 @@
             style="@style/Layout.TopBar.Icon"
             android:layout_alignParentLeft="true"
             android:onClick="onBack"
-            app:srcCompat="@drawable/ic_search" />
+            app:srcCompat="@drawable/ic_back" />
 
         <TextView
             style="@style/Layout.TopBar.Title"
@@ -22,22 +23,15 @@
             android:textAppearance="@style/Text.TopBar" />
 
         <ImageView
-            android:id="@+id/imageRecord"
-            style="@style/Layout.TopBar.Icon"
-            android:layout_toLeftOf="@+id/imageEdit"
-            android:onClick="onRecord"
-            app:srcCompat="@drawable/ic_record" />
-
-        <ImageView
             android:id="@+id/imageEdit"
             style="@style/Layout.TopBar.Icon"
-            android:layout_alignParentRight="false"
-            android:layout_toLeftOf="@+id/imageShare"
+            android:layout_alignTop="@+id/imageRecord"
+            android:layout_toStartOf="@+id/imageSave"
             android:onClick="onEdit"
             app:srcCompat="@drawable/ic_edit" />
 
         <ImageView
-            android:id="@+id/imageShare"
+            android:id="@+id/imageSave"
             style="@style/Layout.TopBar.Icon"
             android:layout_alignParentEnd="false"
             android:layout_alignParentRight="true"

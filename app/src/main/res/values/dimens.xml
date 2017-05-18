@@ -15,4 +15,5 @@
 
     <dimen name="creature_overview_image_height">120dp</dimen>
 
+    <item name="default_disabled_alpha" format="float" type="dimen">0.25</item>
 </resources>

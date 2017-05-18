@@ -14,7 +14,7 @@
             style="@style/Layout.TopBar.Icon"
             android:layout_alignParentLeft="true"
             android:onClick="onBack"
-            app:srcCompat="@drawable/ic_search" />
+            app:srcCompat="@drawable/ic_back" />
 
         <TextView
             style="@style/Layout.TopBar.Title"
@@ -32,12 +32,12 @@
             android:id="@+id/imageEdit"
             style="@style/Layout.TopBar.Icon"
             android:layout_alignParentRight="false"
-            android:layout_toLeftOf="@+id/imageShare"
+            android:layout_toLeftOf="@+id/imageSave"
             android:onClick="onEdit"
             app:srcCompat="@drawable/ic_edit" />
 
         <ImageView
-            android:id="@+id/imageShare"
+            android:id="@+id/imageSave"
             style="@style/Layout.TopBar.Icon"
             android:layout_alignParentEnd="false"
             android:layout_alignParentRight="true"
@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="TextView"
-                    android:textAppearance="@style/Text.Title" />
+                    android:textAppearance="@style/Text.Normal.Label" />
             </LinearLayout>
 
             <LinearLayout

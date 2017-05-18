@@ -125,7 +125,7 @@
                     android:textAppearance="@style/Text.Normal.Label" />
 
                 <EditText
-                    android:id="@+id/editText"
+                    android:id="@+id/editLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
@@ -143,22 +143,14 @@
                 android:textOff="@string/label_unlock_location_time"
                 android:textOn="@string/label_lock_location_time" />
 
-            <view
+            <android.support.v7.widget.RecyclerView
                 android:id="@+id/listImage"
-                class="android.support.v7.widget.RecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:visibility="gone" />
+                android:layout_marginRight="4dp" />
 
         </LinearLayout>
     </ScrollView>
-
-    <Button
-        android:id="@+id/buttonUpload"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/label_upload" />
 
 </LinearLayout>

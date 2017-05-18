@@ -12,10 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wildlifeoftianjin.R;
-import com.wildlifeoftianjin.ui.fragment.DiscoverFragment;
-import com.wildlifeoftianjin.ui.fragment.PersonalFragment;
-import com.wildlifeoftianjin.ui.fragment.SearchFragment;
-import com.wildlifeoftianjin.ui.fragment.UploadRecordFragment;
+import com.wildlifeoftianjin.ui.fragment.homepage.DiscoverFragment;
+import com.wildlifeoftianjin.ui.fragment.homepage.PersonalFragment;
+import com.wildlifeoftianjin.ui.fragment.homepage.SearchFragment;
+import com.wildlifeoftianjin.ui.fragment.homepage.UploadRecordFragment;
 import com.wildlifeoftianjin.ui.framework.clicktabslayout.ClickTabsFramework;
 
 import java.util.ArrayList;
@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void prepareContentFragments() {
         mContentFragments = new ArrayList<>();
-
         mContentFragments.add(
                 new ContentPage(
                         SearchFragment.newInstance(),

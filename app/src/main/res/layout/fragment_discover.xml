@@ -1,9 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout.Root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.wildlifeoftianjin.ui.fragment.DiscoverFragment">
+    tools:context="com.wildlifeoftianjin.ui.fragment.homepage.DiscoverFragment">
 
     <RelativeLayout style="@style/Layout.TopBar">
 

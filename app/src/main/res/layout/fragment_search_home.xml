@@ -1,9 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout.Root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.wildlifeoftianjin.ui.fragment.SearchFragment">
+    tools:context="com.wildlifeoftianjin.ui.fragment.homepage.SearchFragment">
 
     <RelativeLayout
         android:id="@+id/topBar"
@@ -15,21 +16,29 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
-            android:layout_toStartOf="@+id/textFilter"
+            android:layout_toRightOf="@+id/buttonFilter"
             tools:style="@style/Layout.TopBar.Item" />
 
-        <TextView
-            android:id="@+id/textFilter"
-            style="@style/Layout.TopBar.Title"
+        <Button
+            android:id="@+id/buttonFilter"
+            style="@style/Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:onClick="onFilter"
-            android:text="@string/filter"
-            android:textAppearance="@style/Text.Normal.Label" />
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="@string/filter" />
 
     </RelativeLayout>
 
-    <FrameLayout
-        android:id="@+id/searchResultPage"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/searchResultPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

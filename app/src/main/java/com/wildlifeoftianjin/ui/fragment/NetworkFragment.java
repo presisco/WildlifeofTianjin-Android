@@ -1,5 +1,6 @@
 package com.wildlifeoftianjin.ui.fragment;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.presisco.lcat.LCAT;
+import com.wildlifeoftianjin.R;
 import com.wildlifeoftianjin.network.NetQueueSingleton;
 
 /**
@@ -19,12 +21,25 @@ import com.wildlifeoftianjin.network.NetQueueSingleton;
 public class NetworkFragment extends Fragment implements Response.ErrorListener {
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
+    private ProgressDialog mProgress;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mRequestQueue = NetQueueSingleton.getInstance(getContext()).getRequestQueue();
         mImageLoader = NetQueueSingleton.getInstance(getContext()).getImageLoader();
+        mProgress = new ProgressDialog(getContext());
+        mProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgress.setIndeterminate(true);
+        mProgress.setTitle(getContext().getResources().getString(R.string.label_loading));
+    }
+
+    protected void showLoadingIndicator() {
+        mProgress.show();
+    }
+
+    protected void hideLoadingIndicator() {
+        mProgress.hide();
     }
 
     protected RequestQueue getRequestQueue() {
@@ -45,5 +60,6 @@ public class NetworkFragment extends Fragment implements Response.ErrorListener 
     public void onErrorResponse(VolleyError error) {
         LCAT.e(this, "network", error.toString());
         Toast.makeText(getContext(), error.toString(), Toast.LENGTH_SHORT).show();
+        hideLoadingIndicator();
     }
 }

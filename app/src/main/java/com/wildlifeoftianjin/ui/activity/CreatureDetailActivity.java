@@ -8,12 +8,15 @@ import android.widget.TextView;
 
 import com.wildlifeoftianjin.R;
 import com.wildlifeoftianjin.model.Creature;
+import com.wildlifeoftianjin.network.Request.CreatureRequest;
 import com.wildlifeoftianjin.network.Request.ObjectRequest;
+import com.wildlifeoftianjin.ui.framework.viewpager.WebImageAdapter;
 
 public class CreatureDetailActivity extends NetworkActivity
         implements ObjectRequest.ObjectResponse<Creature> {
     public static final String KEY_CREATURE_ID = "creature_id";
 
+    private String creature_name;
     private String creature_id;
 
     private ViewPager mPhotoPager;
@@ -28,6 +31,9 @@ public class CreatureDetailActivity extends NetworkActivity
     private TextView mDistributionText;
     private TextView mValueText;
     private TextView mOtherText;
+    private TextView mProtectionLevelText;
+
+    private WebImageAdapter mAdapter;
 
     protected TextView findText(int id) {
         return (TextView) findViewById(id);
@@ -37,7 +43,7 @@ public class CreatureDetailActivity extends NetworkActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_creature_detail);
-        creature_id = getIntent().getStringExtra(KEY_CREATURE_ID);
+        creature_id = Integer.toString(getIntent().getIntExtra(KEY_CREATURE_ID, 0));
 
         mCreatureNameText = findText(R.id.textCreatureName);
         mEnglishNameText = findText(R.id.textEnglishName);
@@ -50,13 +56,20 @@ public class CreatureDetailActivity extends NetworkActivity
         mDistributionText = findText(R.id.textDistribution);
         mValueText = findText(R.id.textValue);
         mOtherText = findText(R.id.textOther);
+        mProtectionLevelText = findText(R.id.textProtectionLevel);
 
+        mAdapter = new WebImageAdapter(this);
         mPhotoPager = (ViewPager) findViewById(R.id.pagerPhoto);
+        mPhotoPager.setAdapter(mAdapter);
+
+        getRequestQueue().add(new CreatureRequest(creature_id, this, this));
+        showLoadingIndicator();
     }
 
     @Override
     public void onResponse(Creature response) {
         mCreatureNameText.setText(response.scientificName);
+        creature_name = response.scientificName;
         mEnglishNameText.setText(response.englishName);
         mLatinNameText.setText(response.latinName);
         mNickNameText.setText(response.nickName);
@@ -64,9 +77,13 @@ public class CreatureDetailActivity extends NetworkActivity
         mSummaryText.setText(response.summary);
         mFeatureText.setText(response.feature);
         mHabitText.setText(response.habit);
+        mProtectionLevelText.setText(response.protectionLevel);
         mDistributionText.setText(response.distribution);
         mValueText.setText(response.value);
         mOtherText.setText(response.other);
+        mAdapter.setImageUrls(response.images);
+        mAdapter.notifyDataSetChanged();
+        hideLoadingIndicator();
     }
 
     public void onBack(View v) {
@@ -74,7 +91,10 @@ public class CreatureDetailActivity extends NetworkActivity
     }
 
     public void onEdit(View v) {
-        startActivity(new Intent(this, EditRecordActivity.class).putExtra(EditRecordActivity.KEY_CREATURE_NAME, ""));
+        startActivity(
+                new Intent(this, EditRecordActivity.class)
+                        .putExtra(EditRecordActivity.Companion.getKEY_CREATURE_NAME(), creature_name)
+                        .putExtra(EditRecordActivity.Companion.getKEY_CREATURE_ID(), creature_id));
     }
 
     public void onShare(View v) {
@@ -82,7 +102,11 @@ public class CreatureDetailActivity extends NetworkActivity
     }
 
     public void onRecord(View v) {
-        startActivity(new Intent(this, RecordListActivity.class).putExtra(RecordListActivity.Companion.getKEY_CREATURE_ID(), creature_id));
+        startActivity(
+                new Intent(this, RecordListActivity.class)
+                        .putExtra(RecordListActivity.Companion.getKEY_REQUEST_MODE(), RecordListActivity.Companion.getMODE_CREATURE())
+                        .putExtra(RecordListActivity.Companion.getKEY_CREATURE_ID(), creature_id)
+                        .putExtra(RecordListActivity.Companion.getKEY_CREATURE_NAME(), creature_name));
     }
 
 }

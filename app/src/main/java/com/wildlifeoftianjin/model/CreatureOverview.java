@@ -8,20 +8,20 @@ public class CreatureOverview {
     public static final int TYPE_ANIMAL = 0;
     public static final int TYPE_PLANT = 1;
 
-    private String ID;
-    private String name;
-    private String image_url;
-    private String type;
+    public int id;
+    public String name;
+    public String image;
+    public String type;
 
     public CreatureOverview() {
     }
 
-    public String getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -32,12 +32,12 @@ public class CreatureOverview {
         name = _name;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getImage() {
+        return image;
     }
 
-    public void setImage_url(String _image_url) {
-        image_url = _image_url;
+    public void setImage(String _image_url) {
+        image = _image_url;
     }
 
     public String getType() {

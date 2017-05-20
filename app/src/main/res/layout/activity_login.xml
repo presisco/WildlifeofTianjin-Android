@@ -58,6 +58,27 @@
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:text="@string/label_phone_num"
+            android:textAppearance="@style/Text.Normal.Label" />
+
+        <EditText
+            android:id="@+id/editPhoneNum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:textAppearance="@style/Text.Normal.Label" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/usernameLayout"
+        style="@style/Layout.Row"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
             android:text="@string/label_username"
             android:textAppearance="@style/Text.Normal.Label" />
 

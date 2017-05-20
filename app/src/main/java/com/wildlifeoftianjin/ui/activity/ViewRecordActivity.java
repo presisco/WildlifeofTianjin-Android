@@ -16,7 +16,7 @@ public class ViewRecordActivity extends NetworkActivity
         implements ObjectRequest.ObjectResponse<Record> {
     public static final String KEY_RECORD_ID = "record_id";
 
-    private ViewRecordFragment mViewRecordActivity;
+    private ViewRecordFragment mViewRecordFragment;
 
     private String creature_name = "";
 
@@ -25,14 +25,15 @@ public class ViewRecordActivity extends NetworkActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_record);
 
-        mViewRecordActivity = ViewRecordFragment.newInstance();
+        mViewRecordFragment = ViewRecordFragment.newInstance();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.recordFragment, mViewRecordActivity);
+        transaction.replace(R.id.record_fragment, mViewRecordFragment);
         transaction.commit();
 
         getRequestQueue().add(
                 new RecordRequest(
                         getIntent().getStringExtra(KEY_RECORD_ID), this, this));
+        showLoadingIndicator();
     }
 
     public void onBack(View v) {
@@ -47,7 +48,7 @@ public class ViewRecordActivity extends NetworkActivity
         startActivity(
                 new Intent(
                         this, EditRecordActivity.class)
-                        .putExtra(EditRecordActivity.KEY_CREATURE_NAME, creature_name));
+                        .putExtra(EditRecordActivity.Companion.getKEY_CREATURE_NAME(), creature_name));
     }
 
     @Override
@@ -57,6 +58,7 @@ public class ViewRecordActivity extends NetworkActivity
 
     @Override
     public void onResponse(Record response) {
-
+        mViewRecordFragment.setRecord(response);
+        hideLoadingIndicator();
     }
 }

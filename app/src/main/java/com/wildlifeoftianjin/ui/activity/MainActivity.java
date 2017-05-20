@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         mContentFragments.add(
                 new ContentPage(
-                        UploadRecordFragment.newInstance(),
+                        UploadRecordFragment.Companion.newInstance(),
                         mResources.getString(R.string.tab_title_upload),
                         mResources.getDrawable(R.drawable.ic_tab_upload_default),
                         mResources.getDrawable(R.drawable.ic_tab_upload_chosen)

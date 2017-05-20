@@ -22,9 +22,15 @@ open class DragAppendAdapter<CONTENT>(context: Context) : RecyclerView.Adapter<R
     protected var layoutInflater: LayoutInflater = LayoutInflater.from(context)
     private val mNetQueue: NetQueueSingleton = NetQueueSingleton.getInstance(context)
     protected var onAction: ActionListener? = null
-        set(value) {}
     protected var onFooter = {}
-        set(value) {}
+
+    protected fun setAction(action: ActionListener) {
+        onAction = action
+    }
+
+    protected fun setFooter(footer: () -> Unit) {
+        onFooter = footer
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder? = when (viewType) {
         VIEW_TYPE_CONTENT -> onAction!!.onCreate(layoutInflater, parent)
@@ -46,6 +52,10 @@ open class DragAppendAdapter<CONTENT>(context: Context) : RecyclerView.Adapter<R
         } else {
             LCAT.d(this, "recycled", "footer")
         }
+    }
+
+    fun clearDataSet() {
+        mDataSet.clear()
     }
 
     fun setDataSet(dataset: MutableList<CONTENT>) {
@@ -73,7 +83,7 @@ open class DragAppendAdapter<CONTENT>(context: Context) : RecyclerView.Adapter<R
         show_footer = flag
     }
 
-    fun getItem(position: Int) = mDataSet[position]
+    fun getItem(position: Int): CONTENT = mDataSet[position]
 
     fun getImageLoader(): ImageLoader = mNetQueue.imageLoader
 

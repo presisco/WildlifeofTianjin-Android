@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="160dp">
 
     <TextView
         android:id="@+id/textTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="79dp"
         android:text="2017/8/5 8:00"
         android:textAppearance="@style/Text.Normal.Label" />
 
@@ -14,23 +17,31 @@
         android:id="@+id/textLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/textTime"
+        android:layout_alignStart="@+id/textTime"
+        android:layout_below="@+id/textTime"
+        android:layout_marginTop="18dp"
         android:text="TextView"
-        android:textAppearance="@style/Text.Normal.Label" />
+        android:textAppearance="@style/Text.Normal.Content" />
 
     <TextView
         android:id="@+id/textCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/textLocation"
+        android:layout_alignBaseline="@+id/textTime"
+        android:layout_alignBottom="@+id/textTime"
+        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@+id/textTime"
         android:text="TextView"
         android:textAppearance="@style/Text.Normal.Content" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/textCount"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textTime"
+        android:layout_marginTop="23dp"
         android:text="TextView"
         android:textAppearance="@style/Text.Normal.Content" />
+
 </RelativeLayout>

@@ -63,7 +63,7 @@ public class ViewRecordFragment extends Fragment {
     }
 
     public void setRecord(Record record) {
-        mCountText.setText(record.count);
+        mCountText.setText(Integer.toString(record.count));
         mTimeText.setText(record.time);
         mSpecieText.setText(record.classification);
         mDescriptionText.setText(record.description);

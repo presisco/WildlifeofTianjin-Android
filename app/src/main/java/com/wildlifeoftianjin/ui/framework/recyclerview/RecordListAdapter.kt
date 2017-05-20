@@ -29,6 +29,8 @@ class RecordListAdapter(context: Context, onFooter: () -> Unit, private val onCl
         val overview = getItem(position)
         recordHolder.timeText.text = overview.getTime()
         recordHolder.locationText.text = overview.getLocation()
+        recordHolder.countText.text = overview.getCount()
+        recordHolder.headerText.text = overview.getUsername()
     }
 
     override fun onRecycled(holder: DragAppendAdapter.ContentHolder) {
@@ -39,6 +41,7 @@ class RecordListAdapter(context: Context, onFooter: () -> Unit, private val onCl
         val timeText: TextView = itemView.findViewById(R.id.textTime) as TextView
         val locationText: TextView = itemView.findViewById(R.id.textLocation) as TextView
         val countText: TextView = itemView.findViewById(R.id.textCount) as TextView
+        val headerText: TextView = itemView.findViewById(R.id.textHeader) as TextView
 
         init {
             itemView.setOnClickListener { listener(adapterPosition) }

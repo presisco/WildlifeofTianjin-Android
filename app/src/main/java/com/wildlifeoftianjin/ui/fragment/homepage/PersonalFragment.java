@@ -3,14 +3,19 @@ package com.wildlifeoftianjin.ui.fragment.homepage;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.wildlifeoftianjin.R;
 import com.wildlifeoftianjin.ui.activity.LoginActivity;
+import com.wildlifeoftianjin.ui.activity.RecordListActivity;
 import com.wildlifeoftianjin.ui.activity.SettingsActivity;
 
 /**
@@ -20,6 +25,12 @@ import com.wildlifeoftianjin.ui.activity.SettingsActivity;
  */
 public class PersonalFragment extends Fragment {
     private static final int REQUEST_CODE_SIGN_IN = 6666;
+
+    private SharedPreferences mPreferences;
+    private TextView mUsernameText;
+    private Resources mRes;
+
+    private String user_id;
 
     public PersonalFragment() {
         // Required empty public constructor
@@ -39,6 +50,9 @@ public class PersonalFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        mRes = getContext().getResources();
+        user_id = mPreferences.getString("user_id", "");
     }
 
     @Override
@@ -61,6 +75,17 @@ public class PersonalFragment extends Fragment {
             }
         });
 
+        rootView.findViewById(R.id.layoutAllRecord).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), RecordListActivity.class)
+                        .putExtra(RecordListActivity.Companion.getKEY_REQUEST_MODE(), RecordListActivity.Companion.getMODE_USER())
+                        .putExtra(RecordListActivity.Companion.getKEY_USER_ID(), user_id));
+            }
+        });
+
+        mUsernameText = (TextView) rootView.findViewById(R.id.textUsername);
+        mUsernameText.setText(mPreferences.getString("user_name", mRes.getString(R.string.label_click_login)));
         return rootView;
     }
 
@@ -82,7 +107,7 @@ public class PersonalFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_SIGN_IN) {
             if (resultCode == Activity.RESULT_OK) {
-
+                mUsernameText.setText(mPreferences.getString("user_name", mRes.getString(R.string.label_click_login)));
             }
         }
     }

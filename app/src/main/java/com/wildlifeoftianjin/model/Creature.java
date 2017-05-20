@@ -20,8 +20,17 @@ public class Creature {
     public String protectionLevel;
     public String value;
     public String other;
+    public String[] images;
 
     public Creature() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getType() {
@@ -126,5 +135,13 @@ public class Creature {
 
     public void setOther(String other) {
         this.other = other;
+    }
+
+    public String[] getImages() {
+        return images;
+    }
+
+    public void setImages(String[] images) {
+        this.images = images;
     }
 }

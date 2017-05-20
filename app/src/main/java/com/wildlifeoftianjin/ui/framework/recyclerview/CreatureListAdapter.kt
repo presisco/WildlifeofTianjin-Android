@@ -33,14 +33,14 @@ class CreatureListAdapter(context: Context, onFooter: () -> Unit, val onClickedC
         val creatureHolder = holder as CreatureHolder
         val overview = getItem(position)
         creatureHolder.nameText.text = overview.name
-        creatureHolder.imageView.setImageUrl(overview.image_url, getImageLoader())
+        creatureHolder.imageView.setImageUrl(overview.image, getImageLoader())
     }
 
     override fun onRecycled(holder: DragAppendAdapter.ContentHolder) {
 
     }
 
-    protected class CreatureHolder(itemView: View, listener: (Int) -> Unit) : DragAppendAdapter.ContentHolder(itemView) {
+    class CreatureHolder(itemView: View, listener: (Int) -> Unit) : DragAppendAdapter.ContentHolder(itemView) {
         val nameText: TextView = itemView.findViewById(R.id.textCreatureName) as TextView
         val imageView: NetworkImageView = itemView.findViewById(R.id.imageCreature) as NetworkImageView
 

@@ -150,4 +150,5 @@
     <string name="label_password">密码</string>
     <string name="label_sign_up">注册</string>
     <string name="label_repeat_password">重复密码</string>
+    <string name="label_phone_num">手机号</string>
 </resources>

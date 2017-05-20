@@ -7,10 +7,12 @@ import java.text.SimpleDateFormat;
  */
 
 public class Record {
-    public static final SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("yyyy/MM/dd hh:mm");
+    public static final SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
     public String recordID;
     public String username;
+    public String userID;
+    public String creatureID;
     public String scientificName;
     public String classification;
     public String time;
@@ -20,6 +22,22 @@ public class Record {
 
     public Record() {
 
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public String getCreatureID() {
+        return creatureID;
+    }
+
+    public void setCreatureID(String creatureID) {
+        this.creatureID = creatureID;
     }
 
     public String getRecordID() {

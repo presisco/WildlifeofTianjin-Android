@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import com.android.volley.VolleyError
+import com.presisco.lcat.LCAT
 import com.wildlifeoftianjin.R
 import com.wildlifeoftianjin.data.SearchHistoryHelper
 import com.wildlifeoftianjin.model.CreatureOverview
@@ -33,6 +34,17 @@ class SearchFragment : NetworkFragment(), ListRequest.ListResponse<CreatureOverv
     private var mSearchHelper: SearchHistoryHelper? = null
 
     private var mSwipeRefresh: SwipeRefreshLayout? = null
+
+    private var page: Int = 0
+    private var query: String = ""
+
+    private var parentOverrideOnCreature = false
+    private var onCreature: (CreatureOverview) -> Unit = {}
+
+    fun setOnCreatureListener(listener: (CreatureOverview) -> Unit) {
+        onCreature = listener
+        parentOverrideOnCreature = true
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,13 +75,19 @@ class SearchFragment : NetworkFragment(), ListRequest.ListResponse<CreatureOverv
 
         rootView.findViewById(R.id.buttonFilter).setOnClickListener { startActivityForResult(Intent(activity, SearchFilterActivity::class.java), REQUEST_CODE_FILTER) }
 
+        mSwipeRefresh!!.isRefreshing = true
+        requestQueue.add(SearchCreatureRequest("", page, this, this))
+
         return rootView
     }
 
     override fun onQueryTextSubmit(query: String): Boolean {
-        requestQueue.add(SearchCreatureRequest(query, this, this))
+        page = 0
+        this.query = query
+        requestQueue.add(SearchCreatureRequest(query, page, this, this))
         mSearchHelper!!.addHistory(query)
         mSwipeRefresh!!.isRefreshing = true
+        mCreatureViewAdapter!!.clearDataSet()
         return true
     }
 
@@ -80,25 +98,36 @@ class SearchFragment : NetworkFragment(), ListRequest.ListResponse<CreatureOverv
 
     private val onClickCreature = {
         position: Int ->
-        startActivity(
-                Intent(context, CreatureDetailActivity::class.java)
-                        .putExtra(
-                                CreatureDetailActivity.KEY_CREATURE_ID, mCreatureViewAdapter!!
-                                .getItem(position)
-                                .id))
+        if (parentOverrideOnCreature) {
+            onCreature(mCreatureViewAdapter!!.getItem(position))
+        } else {
+            val intent = Intent(context, CreatureDetailActivity::class.java)
+            val overview = mCreatureViewAdapter!!.getItem(position)
+            LCAT.d(this, "id: " + overview.id + ", name: " + overview.name)
+            intent.putExtra(CreatureDetailActivity.KEY_CREATURE_ID, overview.id)
+            startActivity(intent)
+        }
     }
 
-    private val onShowingFooter = {
-
+    private val onShowingFooter: () -> Unit = {
+        page += 1
+        requestQueue.add(SearchCreatureRequest(query, page, this, this))
     }
 
     override fun onRefresh() {
+        page = 0
+        mCreatureViewAdapter!!.clearDataSet()
         mSwipeRefresh!!.isRefreshing = true
-        requestQueue.add(SearchCreatureRequest("", this, this))
+        requestQueue.add(SearchCreatureRequest("", page, this, this))
     }
 
     override fun onResponse(response: MutableList<CreatureOverview>) {
-        mCreatureViewAdapter!!.setDataSet(response)
+        if (response.size < 10) {
+            mCreatureViewAdapter!!.setShowingFooter(false)
+        } else {
+            mCreatureViewAdapter!!.setShowingFooter(true)
+        }
+        mCreatureViewAdapter!!.appendDataSet(response)
         mCreatureViewAdapter!!.notifyDataSetChanged()
         mSwipeRefresh!!.isRefreshing = false
     }

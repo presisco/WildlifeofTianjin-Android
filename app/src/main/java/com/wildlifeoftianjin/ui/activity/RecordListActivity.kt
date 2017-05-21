@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import android.view.View.INVISIBLE
 import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.wildlifeoftianjin.R
@@ -45,6 +46,7 @@ class RecordListActivity : NetworkActivity(), ListRequest.ListResponse<RecordOve
 
         } else {
             user_id = intent.getStringExtra(KEY_USER_ID)
+            imageEdit.visibility = INVISIBLE
             requestQueue.add(UserRecordListRequest(user_id, current_page, this, this))
             showLoadingIndicator()
         }

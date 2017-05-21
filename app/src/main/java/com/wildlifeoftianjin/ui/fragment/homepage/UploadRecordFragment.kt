@@ -61,7 +61,7 @@ class UploadRecordFragment : NetworkFragment(), Response.ErrorListener {
     val onResponse = {
         result: Map<String, String> ->
         var toast_content = ""
-        if (result["result"] === "1") {
+        if (result["status"] == "1") {
             toast_content = "upload succeed"
         } else {
             toast_content = "upload failed"

@@ -8,7 +8,7 @@ public class CreatureOverview {
     public static final int TYPE_ANIMAL = 0;
     public static final int TYPE_PLANT = 1;
 
-    public int id;
+    public String id;
     public String name;
     public String image;
     public String type;
@@ -16,11 +16,11 @@ public class CreatureOverview {
     public CreatureOverview() {
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

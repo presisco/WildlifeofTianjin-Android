@@ -19,6 +19,7 @@ public class ViewRecordActivity extends NetworkActivity
     private ViewRecordFragment mViewRecordFragment;
 
     private String creature_name = "";
+    private String creature_id = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,7 @@ public class ViewRecordActivity extends NetworkActivity
         transaction.commit();
 
         getRequestQueue().add(
-                new RecordRequest(
-                        getIntent().getStringExtra(KEY_RECORD_ID), this, this));
+                new RecordRequest(getIntent().getStringExtra(KEY_RECORD_ID), this, this));
         showLoadingIndicator();
     }
 
@@ -48,7 +48,8 @@ public class ViewRecordActivity extends NetworkActivity
         startActivity(
                 new Intent(
                         this, EditRecordActivity.class)
-                        .putExtra(EditRecordActivity.Companion.getKEY_CREATURE_NAME(), creature_name));
+                        .putExtra(EditRecordActivity.Companion.getKEY_CREATURE_NAME(), creature_name)
+                        .putExtra(EditRecordActivity.Companion.getKEY_CREATURE_ID(), creature_id));
     }
 
     @Override
@@ -58,6 +59,8 @@ public class ViewRecordActivity extends NetworkActivity
 
     @Override
     public void onResponse(Record response) {
+        creature_name = response.scientificName;
+        creature_id = response.creatureID;
         mViewRecordFragment.setRecord(response);
         hideLoadingIndicator();
     }

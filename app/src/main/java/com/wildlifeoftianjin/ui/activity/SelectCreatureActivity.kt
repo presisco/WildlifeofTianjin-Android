@@ -31,9 +31,10 @@ class SelectCreatureActivity : NetworkActivity() {
 
     private val onCreature = {
         overview: CreatureOverview ->
-        setResult(Activity.RESULT_OK, Intent()
-                .putExtra(KEY_CREATURE_ID, overview.id)
-                .putExtra(KEY_CREATURE_NAME, overview.name))
+        val intent = Intent()
+        intent.putExtra(KEY_CREATURE_ID, overview.id)
+        intent.putExtra(KEY_CREATURE_NAME, overview.name)
+        setResult(Activity.RESULT_OK, intent)
         finish()
     }
 

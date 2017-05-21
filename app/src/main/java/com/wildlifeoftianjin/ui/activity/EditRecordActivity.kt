@@ -33,6 +33,14 @@ class EditRecordActivity : NetworkActivity(), Response.ErrorListener {
         mEditRecordFragment!!.setCreature(creature_name, creature_id)
     }
 
+    fun onBack(v: View): Unit {
+        finish()
+    }
+
+    fun onSave(v: View): Unit {
+
+    }
+
     fun onUpload(v: View): Unit {
         val record = mEditRecordFragment!!.record
         requestQueue.add(PostFormRequest(Constants.PATH_UPLOAD_RECORD, record, onResponse, this))

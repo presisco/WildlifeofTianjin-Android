@@ -106,6 +106,7 @@ class EditRecordFragment : Fragment() {
             REQUEST_CODE_SELECT_CREATURE -> if (resultCode == Activity.RESULT_OK) {
                 creature_id = data!!.getStringExtra(SelectCreatureActivity.KEY_CREATURE_ID)
                 creature_name = data.getStringExtra(SelectCreatureActivity.KEY_CREATURE_NAME)
+                specieText?.text = creature_name
             }
         }
     }

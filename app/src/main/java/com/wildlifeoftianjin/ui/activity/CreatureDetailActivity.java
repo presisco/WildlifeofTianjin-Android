@@ -43,7 +43,7 @@ public class CreatureDetailActivity extends NetworkActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_creature_detail);
-        creature_id = Integer.toString(getIntent().getIntExtra(KEY_CREATURE_ID, 0));
+        creature_id = getIntent().getStringExtra(KEY_CREATURE_ID);
 
         mCreatureNameText = findText(R.id.textCreatureName);
         mEnglishNameText = findText(R.id.textEnglishName);
